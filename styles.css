@@ -98,6 +98,8 @@ body {
 	}
 
 /* Portfolio */
-
-				
+	
+	.app_images {
+		width: 100%;
+	}
 }

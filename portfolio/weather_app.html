@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dog Themed Weather App</title>
+<style>
+	#content {
+   text-align: center;
+   padding: 350px 0;
+  
+}
+.contents {
+   display: inline-block;
+   margin: 20px;
+   background-color: white;
+   padding: 10px;
+   border-radius: 10px;
+}
+#user_location{
+   background-color: white;
+   padding: 10px;
+}
+#temp {
+   margin-bottom: 20px;
+   background-color: white;
+   padding: 10px;
+   font-size: 18px
+}
+body {
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center bottom;
+}
+.container {
+   display: none;
+}
+#loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #3498db;
+  border-bottom: 16px solid #3498db;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  animation: spin 2s linear infinite;
+  margin: 250px auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
+</head>
+
+
+<body>
+	<div id="loader">
+</div>
+<div class = "container">
+   <div id="content">
+  <div id="user_location" class="contents">
+  </div>
+  <div id="weather_description" class="contents">
+  </div>
+  <div class="contents">
+     <div id="temp">
+     </div>
+     <form id="temp_form">
+       <input type="radio" name="temp_output" value="celcius" checked> Celcius</input>
+       <input type="radio" name="temp_output" value="fahrenheit"> Fahrenheit</input>
+     </form>
+   </div>
+</div>
+</div>
+</body>
+
+
+<script>
+	$(document).ready(function() {
+   
+   var pos = {};
+
+	(function getLocation(){
+
+navigator.geolocation.getCurrentPosition(function(position) {
+		
+		pos.lat = position.coords.latitude;
+		pos.lon = position.coords.longitude;
+
+		getWeather(pos);
+		
+        })
+	
+}());
+
+	function getWeather(location) {
+		$.getJSON("https://api.apixu.com/v1/current.json?key=0b4ccd28cf7f4c7689d155555173101&q=" + location.lat + "," + location.lon,function(data) {
+         
+         console.log(data);
+         
+	   $("#user_location").text(data.location.region);
+      $("#weather_description").html("<img src='" + data.current.condition.icon + "'</img><br>");
+      $("#weather_description").append(data.current.condition.text);
+            
+	   $("#temp").text("Temp: " + data.current.temp_c + "º");
+         
+      $("input[value=fahrenheit").change(function(){
+		   $("#temp").text("Temp: " + data.current.temp_f + "º");
+	   });
+      $("input[value=celcius").change(function(){
+		   $("#temp").text("Temp: " + data.current.temp_c + "º");
+         });
+         
+         changeBackground(data.current.condition.code);
+         
+      });
+   }
+      function changeBackground(weather) {
+         var d = new Date();
+         
+         if (d.getHours() > 17 || d.getHours() < 6) {
+             $("body").css("background-image", "url('https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528_960_720.jpg')");
+           removeLoader();
+           return;
+         } 
+         
+         switch(weather) {
+            case 1000:
+               $("body").css("background-image", "url('https://images.pexels.com/photos/164186/pexels-photo-164186.jpeg?w=940&h=650&auto=compress&cs=tinysrgb')"); //Sunny dog img
+             break;
+            case 1003:
+              $("body").css("background-image", "url('https://images.pexels.com/photos/36372/pexels-photo.jpg?w=940&h=650&auto=compress&cs=tinysrgb')"); //Partly cloudy img
+                break;
+               case 1003:
+               case 1063:
+               case 1009:
+               case 1069:
+               case 1072:
+               case 1087:
+               case 1150:
+               case 1153:
+               case 1168:
+               case 1171:
+               case 1180:
+               case 1183:
+               case 1186:
+               case 1189:
+               case 1192:
+               case 1195:
+               case 1198:
+               case 1201:
+               case 1204:
+               case 1240:
+               case 1243:
+               case 1246:
+               case 1249:
+               case 1273:
+               case 1276:
+              $("body").css("background-image", "url('https://cdn.pixabay.com/photo/2014/12/05/10/56/puppy-557835_960_720.jpg')"); //Rain img
+               break;
+               case 1006:
+               case 1009:
+               case 1030:
+               case 1135:
+               case 1147:
+              $("body").css("background-image", "url('https://images.pexels.com/photos/295028/pexels-photo-295028.jpeg?w=940&h=650&auto=compress&cs=tinysrgb')"); //Heavy cloud img
+               break;
+               case 1003:
+               case 1066:
+               case 1114:
+               case 1117:
+               case 1207:
+               case 1210:
+               case 1213:
+               case 1216:
+               case 1219:
+               case 1222:
+               case 1225:
+               case 1237:
+               case 1252:
+               case 1255:
+               case 1258:
+               case 1261:
+               case 1264:
+               case 1279:
+               case 1282:
+              $("body").css("background-image", "url('https://images.pexels.com/photos/242724/pexels-photo-242724.jpeg?w=940&h=650&auto=compress&cs=tinysrgb')"); //Snow img
+               break;
+                        
+         }
+      removeLoader(); 
+      }
+   function removeLoader(){
+      $("#loader").css("display", "none");
+      $(".container").css("display", "block");
+   }
+});
+</script>
+</html>
