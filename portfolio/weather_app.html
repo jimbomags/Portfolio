@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 	<title>Dog Themed Weather App</title>
 <style>
@@ -80,8 +80,8 @@ body {
      <div id="temp">
      </div>
      <form id="temp_form">
-       <input type="radio" name="temp_output" value="celcius" checked> Celcius</input>
-       <input type="radio" name="temp_output" value="fahrenheit"> Fahrenheit</input>
+       <input id="cel" type="radio" name="temp_output" value="celcius" checked> Celcius</input>
+       <input id="fah" type="radio" name="temp_output" value="fahrenheit"> Fahrenheit</input>
      </form>
    </div>
 </div>
@@ -115,15 +115,15 @@ navigator.geolocation.getCurrentPosition(function(position) {
          console.log(data);
          
 	  $("#user_location").text(data.location.region);
-      $("#weather_description").html("<img src='http:" + data.current.condition.icon + "'/><br>");
+      $("#weather_description").html("<img src='https:" + data.current.condition.icon + "'/><br>");
       $("#weather_description").append(data.current.condition.text);
             
 	  $("#temp").text("Temp: " + data.current.temp_c + "º");
          
-      $("input[value=fahrenheit").change(function(){
+      $("#fah").change(function(){
 		   $("#temp").text("Temp: " + data.current.temp_f + "º");
 	   });
-      $("input[value=celcius").change(function(){
+      $("#cel").change(function(){
 		   $("#temp").text("Temp: " + data.current.temp_c + "º");
          });
          
