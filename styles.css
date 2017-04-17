@@ -10,7 +10,7 @@ body {
 /* Landing Page */	
 
 	#landing_page {
-		background-image: url("_images/laptop_mobile.jpg");
+		background-image: url("images/laptop_mobile.jpg");
 		color: white;
 		height: 650px;
 		background-size: cover;
