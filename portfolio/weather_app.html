@@ -157,17 +157,17 @@ navigator.geolocation.getCurrentPosition(function(position) {
          var d = new Date();
          
          if (d.getHours() > 19 || d.getHours() < 6) {
-             $("body").css("background-image", "url('https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528_960_720.jpg')");
+             $("body").css("background-image", "url('images/dog_night.jpg')");
            removeLoader();
            return;
          } 
          
          switch(weather) {
             case 1000:
-               $("body").css("background-image", "url('https://images.pexels.com/photos/164186/pexels-photo-164186.jpeg?w=940&h=650&auto=compress&cs=tinysrgb')"); //Sunny dog img
+               $("body").css("background-image", "url('images/dog_sunny.jpg')"); //Sunny dog img
              break;
             case 1003:
-              $("body").css("background-image", "url('https://images.pexels.com/photos/36372/pexels-photo.jpg?w=940&h=650&auto=compress&cs=tinysrgb')"); //Partly cloudy img
+              $("body").css("background-image", "url('images/dog_cloudy.jpg')"); //Partly cloudy img
                 break;
                case 1063:
                case 1069:
@@ -192,14 +192,14 @@ navigator.geolocation.getCurrentPosition(function(position) {
                case 1249:
                case 1273:
                case 1276:
-              $("body").css("background-image", "url('https://cdn.pixabay.com/photo/2014/12/05/10/56/puppy-557835_960_720.jpg')"); //Rain img
+              $("body").css("background-image", "url('images/dog_rain.jpg')"); //Rain img
                break;
                case 1006:
                case 1009:
                case 1030:
                case 1135:
                case 1147:             
-              $("body").css("background-image", "url('https://images.pexels.com/photos/295028/pexels-photo-295028.jpeg?w=940&h=650&auto=compress&cs=tinysrgb')"); //Heavy cloud img
+              $("body").css("background-image", "url('images/dog_overcast.jpg')"); //Heavy cloud img
                break;
                case 1066:
                case 1114:
@@ -219,7 +219,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
                case 1264:
                case 1279:
                case 1282:
-              $("body").css("background-image", "url('https://images.pexels.com/photos/242724/pexels-photo-242724.jpeg?w=940&h=650&auto=compress&cs=tinysrgb')"); //Snow img
+              $("body").css("background-image", "url('images/dog_snow.jpg')"); //Snow img
                break;
                         
          }
