@@ -1,0 +1,169 @@
+<html>
+<head>
+<title>Simple Page</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<style>
+.channels {
+  display: inline-block;
+  margin: 20px 10px;
+}
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  float: right;
+  margin-top: 50px;
+  margin-right: 40px
+}
+ul {
+  text-align: center;
+  padding-top: 10px
+}
+li {
+  display: inline-block;
+  text-align: center;
+  margin: 0px 20px;
+  padding: 10px;
+  font-size: 20px;
+}
+#tab {
+  background-color: tan;
+  width: 75%;
+  margin: auto;
+  border-radius: 20px;
+}
+.channel_container {
+  margin: auto;
+  text-align: center;
+  border-top: solid white 2px;
+  text-decoration: none;
+}
+li:hover {
+  cursor: pointer;
+}
+img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  float: left;
+  margin-left: 20px;
+}
+#sm_green_circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  background-color: green;
+  display: inline-block;
+  margin: 0px 5px;
+}
+#sm_red_circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  background-color: red;
+  display: inline-block;
+  margin: 0px 5px;
+}
+a:visited, a:link {
+  color: black;
+}
+</style>
+<body>
+<div id="tab">
+  <ul>
+    <li id="showAll">All</li>
+    <li id="online">Online<div id="sm_green_circle"></div></li>
+    <li id="offline">Offline<span id="sm_red_circle"></span></li>
+  </ul>
+	<div id="container">
+  </div>
+</div>
+</body>
+<script>
+
+	$(document).ready(function(){
+
+    var channels = ["esl_sc2", "ogamingSC2", "cretetion", "freecodecamp", "esl_overwatch", "habathcx", "robotCaleb", "noobs2ninjas", "starwarshq"];
+
+    for (var i = 0; i < channels.length; i++) {
+      
+      $.ajax({
+
+      	url: "https://wind-bow.gomix.me/twitch-api/channels/" + channels[i],
+
+      	type: "GET",
+
+      	dataType: "jsonp",
+
+  	   }).done(function(channelData){
+
+          if (channelData.hasOwnProperty("error")) {
+
+            $("#container").append("<div class=\"channel_container not_exist\"><div class=\"channels\"><h2>" + channelData.error + "</h2><p>" + channelData.message + "</p></div></div>") 
+          }
+          else {
+
+  		    $("#container").append("<a href=\"" + channelData.url + "\" target=\"_blank\"><div id=\"" + channelData.name + "\" class=\"channel_container\"><img class=\"channels\" src=\"" + channelData.logo + "\"/><div class=\"channels\"><h2>" + channelData.display_name + "</h2><p>" + channelData.status + "</p></div></div></a>")
+
+          getStreamInfo(channelData) }
+
+          })//.done function
+
+   
+    function getStreamInfo(channelData) {
+
+  	$.ajax({
+
+      	url: "https://wind-bow.gomix.me/twitch-api/streams/" + channelData.name,
+
+      	type: "GET",
+
+      	dataType: "jsonp",
+
+  	}).done(function(streamData){
+
+      console.log(streamData);
+
+      var id = channelData.name;
+
+      console.log(id);
+
+  		$("#" + id).append("<div id=\"" + id + "_circle\" class=\"circle channels\"></div>")
+
+      if (streamData.stream === null) {
+        $("#" + id + "_circle").css("background-color", "red")
+        $("#" + id + "_circle").parent().attr("status", "offline")
+      }
+      else {
+        $("#" + id + "_circle").css("background-color", "green")
+        $("#" + id + "_circle").parent().attr("status", "online")
+      }
+  	})
+
+  }//getStreamInfo
+
+  }//for loop
+
+  $("#online").click(function(){
+    $("[status='offline']").css("display", "none");
+    $("[status='online']").css("display", "block");
+    $(".not_exist").css("display", "none");
+  })
+  $("#offline").click(function(){
+    $("[status='online']").css("display", "none");
+    $("[status='offline']").css("display", "block");
+    $(".not_exist").css("display", "none");
+  })
+  $("#showAll").click(function(){
+    $("[status='online']").css("display", "block");
+    $("[status='offline']").css("display", "block");
+    $(".not_exist").css("display", "block");
+  })
+
+})//Doc Ready
+
+
+	
+</script>
+</html>
