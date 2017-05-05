@@ -2,8 +2,13 @@
 <head>
 <title>Simple Page</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
+body {
+  font-family: Open Sans;
+}
 .channels {
   display: inline-block;
   margin: 20px 10px;
@@ -39,6 +44,10 @@ li {
   border-top: solid white 2px;
   text-decoration: none;
 }
+div.channels p {
+    width: 40%;
+    margin: auto;
+  }  
 li:hover {
   cursor: pointer;
 }
@@ -67,6 +76,43 @@ img {
 }
 a:visited, a:link {
   color: black;
+}
+@media screen and (max-width: 999px) {
+  body {
+    color: white;
+  }
+  #tab {
+    width: 100%;
+  }
+  div.channels {
+    width: 100%;
+  }
+  img.channels {
+    width: 100px;
+    margin: 10px auto;
+    float: none;
+  }
+  .circle {
+    display: none;
+  }
+  .channel_container[status="online"] {
+    background-color: green;
+  }
+  .channel_container[status="offline"] {
+    background-color: red;
+  }
+  div.channels p {
+    width: 75%;
+    margin: auto;
+  }
+  a:visited, a:link {
+  color: white;
+  } 
+}
+@media screen and (min-width: 1000px) and (max-width: 1250px) {
+  #tab {
+    width: 100%;
+  }
 }
 </style>
 <body>
@@ -104,7 +150,7 @@ a:visited, a:link {
           }
           else {
 
-  		    $("#container").append("<a href=\"" + channelData.url + "\" target=\"_blank\"><div id=\"" + channelData.name + "\" class=\"channel_container\"><img class=\"channels\" src=\"" + channelData.logo + "\"/><div class=\"channels\"><h2>" + channelData.display_name + "</h2><p>" + channelData.status + "</p></div></div></a>")
+  		    $("#container").append("<a href=\"" + channelData.url + "\" target=\"_blank\"><div id=\"" + channelData.name + "\" class=\"channel_container\"><img class=\"channels\" src=\"" + channelData.logo + "\"/><div class=\"channels info\"><h2>" + channelData.display_name + "</h2><p>" + channelData.status + "</p></div></div></a>")
 
           getStreamInfo(channelData) }
 
@@ -134,10 +180,12 @@ a:visited, a:link {
       if (streamData.stream === null) {
         $("#" + id + "_circle").css("background-color", "red")
         $("#" + id + "_circle").parent().attr("status", "offline")
+        $("#" + id + "_circle").addClass("offline")
       }
       else {
         $("#" + id + "_circle").css("background-color", "green")
         $("#" + id + "_circle").parent().attr("status", "online")
+        $("#" + id + "_circle").addClass("online")
       }
   	})
 
