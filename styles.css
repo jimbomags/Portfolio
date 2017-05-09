@@ -4,10 +4,16 @@ body {
 	color: black;
 	margin: 0px;
 }
+a {
+	color: inherit;
+}
+a:visited {
+	color: inherit;
+}
 /* Mobile Screen */
 @media screen and (max-width: 450px) {
 
-/* Landing Page */	
+/* Landing Page */
 
 	#landing_page {
 		background-image: url("images/laptop_mobile.jpg");
@@ -15,7 +21,7 @@ body {
 		height: 650px;
 		background-size: cover;
 		background-repeat: no-repeat;
-		background-position: left;		
+		background-position: left;
 	}
 	nav p {
 		display: inline-block;
@@ -23,13 +29,13 @@ body {
 		font-size: 18px;
 	}
 	nav ul li {
-		text-align: right;
+		text-align: center;
 		list-style: none;
-		padding: 5px 20px;
+		padding: 10px 20px;
 	}
 	nav ul {
 		display: none;
-		margin-bottom: -128px;
+		margin-bottom: -130px;
 	}
 	#burger_container {
 		display: block;
@@ -45,7 +51,7 @@ body {
 	h1 {
 		text-align: center;
 		position: relative;
-		padding-top: 200px;
+		margin-top: 200px;
 		font-weight: 100;
 	}
 	h1 span {
@@ -84,13 +90,14 @@ body {
 	p {
 		padding: 0 20px;
 	}
-	#about p:last-child {
+	.scroll_d {
 		border: solid 2px black;
 		max-width: 150px;
 		padding: 10px;
-		margin: 50px auto;
+		margin: 100px auto;
+		text-align: center;
 	}
-	#about p:last-child:hover {
+	.scroll_d:hover {
 		background-color: black;
 		color: white;
 		cursor: pointer;
@@ -98,8 +105,11 @@ body {
 	}
 
 /* Portfolio */
-	
+
 	.app_images {
 		width: 100%;
 	}
+
+/* Contact */
+
 }
