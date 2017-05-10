@@ -18,10 +18,10 @@ a:visited {
 #landing_page {
   background-image: url("images/laptop_mobile.jpg");
   color: white;
-  height: auto;
+  height: 750px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: center;
 }
 
 nav p {
@@ -132,5 +132,10 @@ p {
 @media screen and (min-width: 451px) and (max-width: 800px) {
   #landing_page {
     background-image: url(images/laptop_tablet.jpg);
+    background-position: center;
+    height: 1050px;
+  }
+  .chevron_down {
+    margin: 570px auto 0 auto;
   }
 }
