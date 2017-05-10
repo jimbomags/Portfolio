@@ -35,13 +35,16 @@ nav p {
 nav ul li {
   text-align: center;
   list-style: none;
-  padding: 10px 20px;
+  padding: 10px 0px;
   text-decoration: none;
+  margin-top: 10px;
+  font-size: 22px;
 }
 
 nav ul {
   display: none;
-  margin-bottom: -130px;
+  margin: 0px auto -168px auto;
+  padding: 0px;
 }
 
 #burger_container {
@@ -60,7 +63,7 @@ nav ul {
 h1 {
   text-align: center;
   position: relative;
-  margin-top: 200px;
+  margin-top: 230px;
   font-weight: 100;
 }
 
@@ -133,9 +136,24 @@ p {
   #landing_page {
     background-image: url(images/laptop_tablet.jpg);
     background-position: center;
-    height: 1050px;
+    height: 1000px;
   }
   .chevron_down {
-    margin: 570px auto 0 auto;
+    margin: 400px auto 0 auto;
+  }
+  h1 {
+    margin-top: 350px;
+  }
+  #about {
+    width: 80%;
+    height: 1000px;
+    margin: auto;
+  }
+  #port_btn {
+    margin-top: 500px;
+  }
+  #portfolio, #contact {
+    width: 80%;
+    margin: auto;
   }
 }
