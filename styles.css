@@ -1,115 +1,136 @@
-
 body {
-	font-family: Ubuntu;
-	color: black;
-	margin: 0px;
+  font-family: Ubuntu;
+  color: black;
+  margin: 0px;
 }
+
 a {
-	color: inherit;
+  color: inherit;
 }
+
 a:visited {
-	color: inherit;
+  color: inherit;
 }
-/* Mobile Screen */
-@media screen and (max-width: 450px) {
+
 
 /* Landing Page */
 
-	#landing_page {
-		background-image: url("images/laptop_mobile.jpg");
-		color: white;
-		height: 650px;
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: left;
-	}
-	nav p {
-		display: inline-block;
-		margin: 20px 20px;
-		font-size: 18px;
-	}
-	nav ul li {
-		text-align: center;
-		list-style: none;
-		padding: 10px 20px;
-	}
-	nav ul {
-		display: none;
-		margin-bottom: -130px;
-	}
-	#burger_container {
-		display: block;
-		float: right;
-		margin: 10px 20px;
-	}
-	.burger_icon {
-		width: 35px;
-    	height: 5px;
-    	background-color: white;
-    	margin: 6px 0;
-	}
-	h1 {
-		text-align: center;
-		position: relative;
-		margin-top: 200px;
-		font-weight: 100;
-	}
-	h1 span {
-		font-weight: 900;
-		font-size: 36px;
-	}
-	.chevron_down {
-		margin: 220px auto 0 auto;
-		width: 50px;
-		height: 50px;
-	}
-	.chevron_down p {
-		padding: 5px;
-		border: 2px solid white;
-		text-align: center;
-		font-size: 20px;
-	}
-	.chevron_down p:hover {
-		background-color: white;
-		color: black;
-		cursor: pointer;
-		border-color: black;
-	}
-	#burger_container:hover {
-		cursor: pointer;
-	}
+#landing_page {
+  background-image: url("images/laptop_mobile.jpg");
+  color: white;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+nav p {
+  display: inline-block;
+  margin: 20px 20px;
+  font-size: 18px;
+  border: solid 2px white;
+  padding: 10px;
+}
+
+nav ul li {
+  text-align: center;
+  list-style: none;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+nav ul {
+  display: none;
+  margin-bottom: -130px;
+}
+
+#burger_container {
+  display: block;
+  float: right;
+  margin: 10px 20px;
+}
+
+.burger_icon {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+}
+
+h1 {
+  text-align: center;
+  position: relative;
+  margin-top: 200px;
+  font-weight: 100;
+}
+
+h1 span {
+  font-weight: 900;
+  font-size: 36px;
+}
+
+.chevron_down {
+  margin: 220px auto 0 auto;
+  width: 50px;
+  height: 50px;
+}
+
+.chevron_down p {
+  padding: 5px;
+  border: 2px solid white;
+  text-align: center;
+  font-size: 20px;
+}
+
+.chevron_down p:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border-color: black;
+}
+
+#burger_container:hover {
+  cursor: pointer;
+}
+
 
 /* About */
 
-	h2 {
-		text-align: center;
-		border-top: solid 1px black;
-		border-bottom: solid 1px black;
-		padding: 10px 0;
-		}
-	p {
-		padding: 0 20px;
-	}
-	.scroll_d {
-		border: solid 2px black;
-		max-width: 150px;
-		padding: 10px;
-		margin: 100px auto;
-		text-align: center;
-	}
-	.scroll_d:hover {
-		background-color: black;
-		color: white;
-		cursor: pointer;
-		border-color: white;
-	}
+h2 {
+  text-align: center;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  padding: 10px 0;
+}
+
+p {
+  padding: 0 20px;
+}
+
+.scroll_d {
+  border: solid 2px black;
+  max-width: 150px;
+  padding: 10px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.scroll_d:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border-color: white;
+}
+
 
 /* Portfolio */
 
-	.app_images {
-		width: 100%;
-	}
+.app_images {
+  width: 100%;
+}
 
-/* Contact */
-
+@media screen and (min-width: 451px) and (max-width: 800px) {
+  #landing_page {
+    background-image: url(images/laptop_tablet.jpg);
+  }
 }
