@@ -1,12 +1,17 @@
 
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require('webpack')
+const path = require('path')
 
 module.exports = {
-  entry: './app/src/app.js',
+  entry: './app/src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'app/src')
+    path: path.resolve(__dirname, 'app/dist')
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'app/'),
+    compress: true,
+    port: 3000
   },
   module: {
     loaders: [
@@ -16,19 +21,23 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader'
+        test: /\.(png|svg|jpg|gif|jpeg)$/,
+        use: [{
+          loader: 'file-loader'
+        }]
       },
       {
-        test: /\.(png|svg|jpg|gif|jpeg)$/,
-        loader: 'file-loader'
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader'
+        },
+        {
+          loader: 'css-loader'
+        },
+        {
+          loader: 'sass-loader'
+        }]
       }
     ]
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    })
-  ]
-};
+}

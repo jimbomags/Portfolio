@@ -31,7 +31,15 @@ module.exports = {
         ],
         "semi": [
             "error",
-            "always"
-        ]
+            "never"
+        ],
+        "no-unused-vars": [
+            "error", {
+              "vars": "all",
+              "args": "after-used",
+              "ignoreRestSiblings": false,
+              "varsIgnorePattern": "[rR]eact|[cC]omponent|[R]outer|[R]oute|[L]ink"
+            }
+          ]
     }
 };

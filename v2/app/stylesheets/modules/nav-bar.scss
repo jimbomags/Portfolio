@@ -1,0 +1,116 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+nav {
+  background-color: black;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  height: 12.5vh;
+  display: flex;
+  justify-content: space-between;
+}
+#logo {
+  margin: auto 0px auto 30px;
+  height: 60px;
+}
+#links {
+  margin: auto 30px auto 0px;
+  color: white;
+  p {
+    display: inline;
+    margin: 0px 30px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+#port_links {
+  display: inline-block;
+  .port {
+    display: none;
+    padding: 15px 10px;
+    margin: 0px;
+    text-align: center;
+    border-bottom: solid 2px white;
+    &:nth-child(1) {
+      padding-top: 35px;
+    }
+  }
+  &:hover .port {
+    display: block;
+    cursor: pointer;
+    background-color: black;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+}
+#port_links_content {
+  position: absolute;
+  z-index: 1;
+}
+@for $i from 1 to 5 {
+   #port_links_content p:nth-child(#{$i}) { animation-delay: $i * 0.15s; }
+}
+
+
+
+// @keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
+//
+// nav {
+//   background-color: black;
+//   width: 100%;
+//   margin: 0px;
+//   padding: 0px;
+//   height: 12.5vh;
+//   display: flex;
+//   justify-content: space-between;
+// }
+// #logo {
+//   margin: auto 0px auto 30px;
+//   height: 60px;
+// }
+// #links {
+//   margin: auto 30px auto 0px;
+//   color: white;
+//   p {
+//     display: inline;
+//     margin: 0px 30px;
+//     &:hover {
+//       cursor: pointer;
+//     }
+//   }
+// }
+// #port_links {
+//   display: inline-block;
+//   &:hover #port_links_content {
+//     display: block;
+//     cursor: pointer;
+//     background-color: black;
+//     animation-name: fadeIn;
+//     animation-duration: 1s;
+//     animation-fill-mode: forwards;
+//     opacity: 0;
+//   }
+// }
+// #port_links_content {
+//   display: none;
+//   position: absolute;
+//   padding: 10px 0px 20px 0px;
+//   z-index: 1;
+// }
