@@ -5,10 +5,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      home: true,
-      about: false,
-      skills: false,
-      contact: false
+      home: true
     }
     this.home = this.home.bind(this)
     this.about = this.about.bind(this)

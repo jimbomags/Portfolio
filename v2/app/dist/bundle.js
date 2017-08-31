@@ -22441,10 +22441,7 @@ var App = function (_Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      home: true,
-      about: false,
-      skills: false,
-      contact: false
+      home: true
     };
     _this.home = _this.home.bind(_this);
     _this.about = _this.about.bind(_this);
@@ -22662,9 +22659,15 @@ var Content = {
     'Sass'
   )]],
   contact: _react2.default.createElement(
-    'h1',
+    'form',
     null,
-    'Holding Text'
+    'Name:',
+    _react2.default.createElement('input', { type: 'text' }),
+    'E-mail:',
+    _react2.default.createElement('input', { type: 'email' }),
+    'Message:',
+    _react2.default.createElement('textarea', null),
+    _react2.default.createElement('input', { type: 'submit', value: 'Send' })
   )
 
 };

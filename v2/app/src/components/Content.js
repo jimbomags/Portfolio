@@ -17,7 +17,16 @@ const Content = {
     [6,'../assets/sass.png',<p>Sass</p>]
   ],
   contact:
-    <h1>Holding Text</h1>
+    <form>
+      Name:
+      <input type='text'/>
+      E-mail:
+      <input type='email'/>
+      Message:
+      <textarea>
+      </textarea>
+      <input type='submit' value='Send'/>
+    </form>
 
 }
 
