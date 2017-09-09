@@ -1,4 +1,3 @@
-
 const webpack = require('webpack')
 const path = require('path')
 
@@ -9,7 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, 'app/dist')
   },
   devServer: {
-    contentBase: path.join(__dirname, 'app/'),
+    contentBase: path.join(__dirname, 'app/dist'),
     compress: true,
     port: 3000
   },
