@@ -36,10 +36,9 @@ class App extends Component {
             <div id='port_links'>
               <p>Portfolio</p>
               <div id='port_links_content'>
+                <p className='port' onClick={() => this.changeContent(Content.portfolio.rndQuote)}>Random Quote</p>
                 <p className='port' onClick={() => this.changeContent(Content.portfolio.weather)}>Weather App</p>
-                <p className='port'>Snakes & Ladders</p>
-                <p className='port'>Wikipedia Search</p>
-                <p className='port'>Netflix</p>
+                <p className='port' onClick={() => this.changeContent(Content.portfolio.sandl)}>Snakes & Ladders</p>
               </div>
             </div>
             <p onClick={() => this.changeContent(Content.contact)}>Contact</p>

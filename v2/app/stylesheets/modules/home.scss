@@ -1,9 +1,12 @@
 @import './nav-bar.scss';
+@import './portfolio.scss';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 html, body {
   margin: 0px;
   padding: 0px;
   color: white;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 #main_container {
   width: 100%;
@@ -26,7 +29,7 @@ h1 {
   height: 87.5vh;
   width: 100%;
   display: flex;
-  background-image: url('../../dist/assets/background_desktop.jpg');
+  background-image: url('../dist/assets/background_desktop.jpg');
   background-size: cover;
   background-position: center;
   flex-wrap: wrap;
@@ -62,6 +65,9 @@ h1 {
   animation-name: fadeIn;
   animation-duration: 1s;
   animation-fill-mode: forwards;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
   opacity: 0;
   img {
     height: 150px;
@@ -91,7 +97,7 @@ form {
   textarea {
     height: 100px;
   }
-  #submitBtn {
+  .submitBtn {
     display: flex;
     justify-content: flex-end;
     input {

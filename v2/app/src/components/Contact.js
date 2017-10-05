@@ -27,7 +27,7 @@ class ContactForm extends Component {
         Message:
         <textarea name='message' value={this.state.message} onChange={this.handleChange}>
         </textarea>
-        <div id='submitBtn'>
+        <div className='submitBtn'>
           <input type='submit' value='Send'/>
         </div>
       </form>

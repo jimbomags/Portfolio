@@ -1,6 +1,8 @@
 import React from 'react'
 import Contact from './Contact'
 import Weather from './Weather'
+import SnakesAndLadders from './SnakesAndLadders'
+import RndQuote from './RndQuote'
 
 const Content = {
   home:
@@ -20,7 +22,9 @@ const Content = {
   ],
   contact: <Contact />,
   portfolio: {
-    weather: <Weather />
+    rndQuote: <RndQuote />,
+    weather: <Weather />,
+    sandl: <SnakesAndLadders />
   }
 }
 
