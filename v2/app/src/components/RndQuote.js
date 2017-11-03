@@ -43,7 +43,7 @@ class RndQuote extends Component {
       <div id='quote-container'>
         <p>&ldquo;{this.state.quote}&rdquo;</p>
         <p>&mdash; {this.state.author}</p>
-        <button onClick={this.getQuote}>Get A New Quote</button>
+        <button id='quote-button' className='button push_button' onClick={this.getQuote}>Get A New Quote</button>
       </div>
     )
 

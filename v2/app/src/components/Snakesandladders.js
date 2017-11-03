@@ -223,7 +223,7 @@ class SnakesAndLadders extends Component {
             <p id='landed-on-s-or-l'></p>
             <p id='next-player-turn'></p>
           </div>
-          <button id='dice' onClick={this.rollDice}>Throw Dice</button>
+          <button className='button push_button'  onClick={this.rollDice}>Roll Dice</button>
         </div>
         <div id='board'>
           {board()}

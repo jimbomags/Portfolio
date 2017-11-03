@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MyLoc from 'react-icons/lib/md/my-location'
+import Send from 'react-icons/lib/md/send'
 
 class Weather extends Component {
   constructor(props){
@@ -84,7 +85,7 @@ class Weather extends Component {
           </div>
         </div>
         <div className='submitBtn'>
-          <input type='submit' value='Search'/>
+          <button className='button' type='submit'>Search</button>
         </div>
       </form>
     </div>
@@ -100,7 +101,7 @@ class Weather extends Component {
           <img id='weather-icon' src={`https:${this.state.icon}`} />
         </div>
         <div id='search-again-btn'>
-          <button onClick={() => this.setState({weatherContent: false})}>Search Again</button>
+          <button className='button' onClick={() => this.setState({weatherContent: false})}>Search Again</button>
         </div>
       </div>
 

@@ -33,6 +33,9 @@
 #search-again-btn {
   display: flex;
   justify-content: center;
+  button {
+    width: 200px;
+  }
 }
 
 //Snakes and Ladders
@@ -49,6 +52,7 @@
     width: 12.5%;
     display: flex;
     flex-direction: column;
+    height: 80%;
     margin: auto 0px;
     .player-display {
       display: flex;
@@ -107,7 +111,7 @@
   }
   button {
     width: 90%;
-    margin: 20px auto;
+    margin: 0px auto;
   }
   #p1-Circle {
     width: 15px;
@@ -123,11 +127,17 @@
     border-radius: 25px;
     margin: auto 0px;
   }
-  #dice {
-    height: 10vh;
+  .push_button {
+    border-right: solid 3px rgb(44, 97, 33);
+    border-bottom: solid 3px rgb(44, 97, 33);
+    &:active {
+      border-right: solid 3px rgb(67, 147, 51);
+      border-bottom: solid 3px rgb(67, 147, 51);
+      border-top: solid 3px rgb(44, 97, 33);
+      border-left: solid 3px rgb(44, 97, 33);
+    }
   }
 }
-
 //Random Quote
 
 #quote-container {
@@ -145,10 +155,22 @@
   p:nth-child(2) {
     text-align: right;
   }
-  button {
-    width: 50%;
-    height: 50px;
-    margin: 20px auto;
+  #quote-button {
+    width: 200px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: solid 3px rgb(44, 97, 33);
+    border-bottom: solid 3px rgb(44, 97, 33);
+    &:active {
+      border-right: solid 3px rgb(67, 147, 51);
+      border-bottom: solid 3px rgb(67, 147, 51);
+      border-top: solid 3px rgb(44, 97, 33);
+      border-left: solid 3px rgb(44, 97, 33);
+    }
   }
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Send from 'react-icons/lib/md/send'
 
 class ContactForm extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class ContactForm extends Component {
         <textarea name='message' value={this.state.message} onChange={this.handleChange}>
         </textarea>
         <div className='submitBtn'>
-          <input type='submit' value='Send'/>
+          <button className='button' type='submit'>Submit</button>
         </div>
       </form>
     )
