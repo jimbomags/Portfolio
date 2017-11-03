@@ -4,7 +4,8 @@
   "description": "My second portfolio, incorporating Node, React and Sass",
   "main": "./app/src/app.js",
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server"
+    "start": "./node_modules/.bin/webpack-dev-server",
+    "build": "webpack"
   },
   "author": "James McGill",
   "license": "ISC",

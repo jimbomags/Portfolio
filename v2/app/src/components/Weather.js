@@ -65,7 +65,7 @@ class Weather extends Component {
       weatherObj = JSON.parse(text)
       this.setState({
         weatherContent: true,
-        location: weatherObj.location.name,
+        location: weatherObj.location.region,
         condition: weatherObj.current.condition.text,
         icon: weatherObj.current.condition.icon,
         temp: weatherObj.current.temp_c
@@ -74,19 +74,20 @@ class Weather extends Component {
   }
   render() {
     const form =
-    <form onSubmit={this.getLatLong} id='port-form'>
-      Search for a location:
-      <div id='location-search-field'>
-        <input type='search' value={this.state.address} onChange={this.handleChange}/>
-        <div title='Use My Location' id='find-me-image'>
-          <MyLoc onClick={this.findUserLocation} />
+    <div id='weather-form-container'>
+      <form onSubmit={this.getLatLong} id='port-form'>
+        Search for a location:
+        <div id='location-search-field'>
+          <input type='search' value={this.state.address} onChange={this.handleChange}/>
+          <div title='Use My Location' id='find-me-image'>
+            <MyLoc onClick={this.findUserLocation} />
+          </div>
         </div>
-      </div>
-      <div className='submitBtn'>
-        <input type='submit' value='Search'/>
-      </div>
-    </form>
-
+        <div className='submitBtn'>
+          <input type='submit' value='Search'/>
+        </div>
+      </form>
+    </div>
 
     const results =
       <div>

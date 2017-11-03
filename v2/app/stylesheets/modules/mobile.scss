@@ -1,0 +1,63 @@
+@media screen and (max-width: 450px) {
+  nav {
+    justify-content: space-between;
+  }
+  #logo {
+    margin: auto 0px auto 0px;
+  }
+  #links {
+    display: none;
+    flex-direction: column;
+    margin: 12.5vh 0px;
+    z-index: 1;
+    position: absolute;
+    padding: 0px;
+    width: 100%;
+    background-color: black;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    p {
+      text-align: center;
+      padding: 10px 0px;
+      border-bottom: solid 2px white;
+      margin: 0px;
+    }
+    #port_links {
+      display: flex;
+      #port_links_content {
+        width: 100%
+      }
+      p {
+      text-align: center;
+      width: 100%;
+      margin: 0px;
+    }
+    .port {
+      padding: 10px 0px;
+      &:nth-child(1) {
+        margin-top: 85px;
+        padding-top: 15px;
+      }
+    }
+    }
+  }
+  #burger_icon {
+    margin: auto 20px auto 0px;
+    display: block;
+    div {
+      width: 35px;
+      height: 5px;
+      background-color: white;
+      margin: 6px 0;
+    }
+  }
+  #about {
+    #about-container {
+      width: 100%;
+      margin: 0px 10px;
+    }
+  }
+
+}

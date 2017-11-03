@@ -6,7 +6,6 @@
     opacity: 1;
   }
 }
-
 nav {
   background-color: black;
   width: 100%;
@@ -15,13 +14,14 @@ nav {
   height: 12.5vh;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 #logo {
   margin: auto 0px auto 30px;
   height: 60px;
 }
 #links {
-  margin: auto 30px auto 0px;
+  margin: auto 0px;
   color: white;
   p {
     display: inline;
@@ -30,6 +30,9 @@ nav {
       cursor: pointer;
     }
   }
+}
+#burger_icon {
+  display: none;
 }
 #port_links {
   display: inline-block;
@@ -52,6 +55,13 @@ nav {
     animation-fill-mode: forwards;
     opacity: 0;
   }
+}
+.clicked_port {
+  background-color: black;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 #port_links_content {
   position: absolute;
