@@ -108,16 +108,20 @@ h1 {
   #skills_container div:nth-child(#{$i}) { animation-delay: $i * 0.5s; }
 }
 form {
-  margin: 10vh auto;
+  margin: 5vh auto;
   display: flex;
   flex-direction: column;
   animation-name: fadeIn;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   opacity: 0;
+  width: 40%;
   input, textarea {
     margin: 20px auto;
-    width: 400px;
+    width: 100%;
+    height: 25px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
   }
   textarea {
     height: 100px;
@@ -212,6 +216,37 @@ form {
     #about-container {
       width: 100%;
       margin: auto 30px;
+    }
+  }
+}
+.error {
+  height: 25px;
+  width: 98%;
+  background-color: rgb(172, 0, 0);
+  margin-bottom: 20px;
+  padding-left: 2%;
+
+}
+.error-input {
+  border: 2px solid rgb(172, 0, 0);
+  margin-bottom: 0px;
+}
+#contact-container {
+  width: 100%;
+  min-height: 87.5vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#contact-icons {
+  display: flex;
+  justify-content: space-around;
+  width: 400px;
+  margin: 50px auto 10px auto;
+  svg {
+    height: 75px;
+    width: 75px;
+    color: white;
+    &:active {
+      color: white;
     }
   }
 }
