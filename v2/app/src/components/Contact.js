@@ -52,6 +52,7 @@ class ContactForm extends Component {
   }
   render() {
     return (
+      <div id='contact'>
       <div id='contact-container'>
         <form id='form' action='https:formspree.io/contact@jamesmcgill.co.uk' method='POST'>
           Name:
@@ -72,6 +73,7 @@ class ContactForm extends Component {
           <a href='https://github.com/jimbomags' target='_blank'><Github /></a>
           <a href='mailto:contact@jamesmcgill.co.uk'><Envelope /></a>
         </div>
+      </div>
       </div>
     )
   }
