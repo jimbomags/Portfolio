@@ -1,9 +1,16 @@
 //Weather App
+#weather {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
 #weather-form-container {
   display: flex;
+  width: 50%;
 }
 #port-form {
   margin: 25vh auto;
+  width: 100%;
 }
 #location-search-field {
   display: flex;

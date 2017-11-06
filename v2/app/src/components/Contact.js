@@ -53,27 +53,27 @@ class ContactForm extends Component {
   render() {
     return (
       <div id='contact'>
-      <div id='contact-container'>
-        <form id='form' action='https:formspree.io/contact@jamesmcgill.co.uk' method='POST'>
-          Name:
-          <input type='text' name='name' id='name' value={this.state.name} onChange={this.handleChange} />
-          <span id='name-error'></span>
-          E-mail:
-          <input type='email' name='email' id='email' value={this.state.email} onChange={this.handleChange} />
-          <span id='email-error'></span>
-          Message:
-          <textarea name='message' id='message' value={this.state.message} onChange={this.handleChange}>
-          </textarea>
-          <span id='message-error'></span>
-          <div className='submitBtn'>
-            <button className='button' type='submit'>Submit</button>
+        <div id='contact-container'>
+          <form id='form' action='https:formspree.io/contact@jamesmcgill.co.uk' method='POST'>
+            Name:
+            <input type='text' name='name' id='name' value={this.state.name} onChange={this.handleChange} />
+            <span id='name-error'></span>
+            E-mail:
+            <input type='email' name='email' id='email' value={this.state.email} onChange={this.handleChange} />
+            <span id='email-error'></span>
+            Message:
+            <textarea name='message' id='message' value={this.state.message} onChange={this.handleChange}>
+            </textarea>
+            <span id='message-error'></span>
+            <div className='submitBtn'>
+              <button className='button' type='submit'>Submit</button>
+            </div>
+          </form>
+          <div id='contact-icons'>
+            <a href='https://github.com/jimbomags' target='_blank'><Github /></a>
+            <a href='mailto:contact@jamesmcgill.co.uk'><Envelope /></a>
           </div>
-        </form>
-        <div id='contact-icons'>
-          <a href='https://github.com/jimbomags' target='_blank'><Github /></a>
-          <a href='mailto:contact@jamesmcgill.co.uk'><Envelope /></a>
         </div>
-      </div>
       </div>
     )
   }

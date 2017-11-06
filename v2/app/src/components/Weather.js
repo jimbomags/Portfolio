@@ -73,6 +73,9 @@ class Weather extends Component {
       })
     })
   }
+  componentDidMount() {
+    let input = doucument.querySelector('#')
+  }
   render() {
     const form =
     <div id='weather-form-container'>
@@ -110,7 +113,7 @@ class Weather extends Component {
     (!this.state.weatherContent) ? display = form : display = results
 
     return (
-      <div>
+      <div id='weather'>
         {display}
       </div>
     )
