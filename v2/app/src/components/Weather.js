@@ -16,33 +16,56 @@ class Weather extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.getLatLong = this.getLatLong.bind(this)
     this.findUserLocation = this.findUserLocation.bind(this)
+    this.errorHandler = this.errorHandler.bind(this)
   }
   handleChange(event){
     this.setState({
       address: event.target.value
     })
   }
+  errorHandler(response) {
+    let input = document.querySelector('#location-search-field input')
+    let weatherError = document.querySelector('#weather-error')
+
+    input.classList.add('error-input')
+    weatherError.classList.add('error')
+    weatherError.innerText = response
+  }
   getLatLong(event) {
     event.preventDefault()
 
-    const encodedAddress = encodeURIComponent(this.state.address)
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyBrX29SqRNyMJOxkzo64rbBDbpBxZASzks`
+    let input = document.querySelector('#location-search-field input')
 
-    var resultsObj
-    var location = {}
+    try {
+      if (input.value.length == 0) throw 'Please enter a location'
+      const encodedAddress = encodeURIComponent(this.state.address)
+      const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyBrX29SqRNyMJOxkzo64rbBDbpBxZASzks`
 
-    fetch(url).then(response => {
-      return response.text()
-    }).then(text => {
-      resultsObj = JSON.parse(text)
-      location.lat = resultsObj.results[0].geometry.location.lat
-      location.long = resultsObj.results[0].geometry.location.lng
+      var resultsObj
+      var location = {}
 
-      this.getWeather(location)
-    })
+      if (navigator.onLine) {
+        fetch(url).then(response => {
+          return response.text()
+        }).then(text => {
+          resultsObj = JSON.parse(text)
+          if (resultsObj.status == 'ZERO_RESULTS') throw 'Unable to find that location'
+          location.lat = resultsObj.results[0].geometry.location.lat
+          location.long = resultsObj.results[0].geometry.location.lng
+          this.getWeather(location)
+        }).catch((err) => {
+          this.errorHandler(err)
+        })
+      } else {
+        throw 'Please check your connection'
+      }
+    } catch(err) {
+      this.errorHandler(err)
+    }
   }
   findUserLocation() {
-    document.getElementById('content').style.cursor = 'wait'
+    let cursor = document.querySelector('#content')
+    cursor.style.cursor = 'wait'
 
     var position = {}
 
@@ -50,9 +73,12 @@ class Weather extends Component {
       position.lat = results.coords.latitude
       position.long = results.coords.longitude
 
-      document.getElementById('content').style.cursor = 'default'
+      cursor.style.cursor = 'default'
 
       this.getWeather(position)
+    }, () => {
+      cursor.style.cursor = 'default'
+      this.errorHandler('Unable to locate your position')
     })
   }
   getWeather(loc) {
@@ -71,10 +97,9 @@ class Weather extends Component {
         icon: weatherObj.current.condition.icon,
         temp: weatherObj.current.temp_c
       })
+    }).catch(() => {
+      this.errorHandler('Unable to connect to network')
     })
-  }
-  componentDidMount() {
-    let input = doucument.querySelector('#')
   }
   render() {
     const form =
@@ -82,11 +107,12 @@ class Weather extends Component {
       <form onSubmit={this.getLatLong} id='port-form'>
         Search for a location:
         <div id='location-search-field'>
-          <input type='search' value={this.state.address} onChange={this.handleChange}/>
+          <input value={this.state.address} onChange={this.handleChange}/>
           <div title='Use My Location' id='find-me-image'>
             <MyLoc onClick={this.findUserLocation} />
           </div>
         </div>
+        <span id='weather-error'></span>
         <div className='submitBtn'>
           <button className='button' type='submit'>Search</button>
         </div>
@@ -121,8 +147,3 @@ class Weather extends Component {
 }
 
 export default Weather
-
-// search a location
-// use your location
-
-//return weather, temp (c & f), weather icon

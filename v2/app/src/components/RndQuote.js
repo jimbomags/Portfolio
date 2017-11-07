@@ -2,18 +2,23 @@ import React, { Component } from 'react'
 
 var quote, author
 
-const url = 'https://talaikis.com/api/quotes/random/';
+const url = 'https://talaikis.com/api/quotes/random/'
 
-(function() {
+try {
+  if(!navigator.onLine) throw 'Unable to connect to network, please check your connection';
+  (function() {
 
 
-  fetch(url).then(response => {
-    return response.text()
-  }).then(text => {
-    let resultsObj = JSON.parse(text);
-    ({ quote, author } = resultsObj)
-  })
-}())
+    fetch(url).then(response => {
+      return response.text()
+    }).then(text => {
+      let resultsObj = JSON.parse(text);
+      ({ quote, author } = resultsObj)
+    })
+  }())
+} catch(err) {
+  quote = err
+}
 
 class RndQuote extends Component {
   constructor(props) {

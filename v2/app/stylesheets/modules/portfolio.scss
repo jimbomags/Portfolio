@@ -11,13 +11,20 @@
 #port-form {
   margin: 25vh auto;
   width: 100%;
+  button {
+    margin-top: 11px;
+  }
 }
 #location-search-field {
   display: flex;
 }
 #find-me-image {
+  height: 25px;
+  margin: 21px 0px 0px 0px;
   svg {
-    margin: 20px 0;
+    width: 25px;
+    height: 25px;
+    margin: auto auto auto 5px;
   }
   :hover {
     cursor: pointer;
