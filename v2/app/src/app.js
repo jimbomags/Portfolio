@@ -23,13 +23,7 @@ class App extends Component {
     this.displayNav = this.displayNav.bind(this)
   }
   changeContent(newContent) {
-    const contContainer = document.querySelector('#content')
-    if (newContent == skills) {
-      contContainer.style.backgroundImage = 'none'
-    }
-    else if (this.state.content == skills) {
-      contContainer.style.backgroundImage = 'url(\'/assets/background_desktop.jpg\')'
-    }
+
     this.setState({content: newContent})
   }
   portClicked() {
@@ -62,9 +56,6 @@ class App extends Component {
     return (
       <div id='main_container'>
         <nav>
-          <img id='logo' src='../assets/logo.png' onClick={() => {
-            this.changeContent(Content.home)}
-          }/>
           <ul id='links'>
             <p onClick={() => {
               this.displayNav()
@@ -106,9 +97,7 @@ class App extends Component {
             <div></div>
           </div>
         </nav>
-        <div id='content'>
-          {this.state.content}
-        </div>
+        {this.state.content}
       </div>
     )
   }

@@ -6,7 +6,10 @@ import RndQuote from './RndQuote'
 
 const Content = {
   home:
-    <h1>James McGill<br/>Frontend Developer</h1>,
+    <div id='home'>
+      <h1>James McGill<br/><span>Frontend Developer</span></h1>
+      <button id='about-me-btn'>Find Out More</button>
+    </div>,
   about:
     <div id='about'>
       <div id='about-container'>

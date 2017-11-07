@@ -7,25 +7,22 @@
   }
 }
 nav {
-  background-color: black;
+  background-color: rgba(255, 255, 255, 0);
   width: 100%;
   margin: 0px;
   padding: 0px;
-  height: 12.5vh;
+  height: 10vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-wrap: wrap;
 }
-#logo {
-  margin: auto 0px auto 30px;
-  height: 60px;
-}
 #links {
-  margin: auto 0px;
+  margin: auto 50px;
   color: white;
   p {
     display: inline;
-    margin: 0px 30px;
+    margin: 0px 20px;
+    letter-spacing: 0.5px;
     &:hover {
       cursor: pointer;
     }
