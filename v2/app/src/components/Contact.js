@@ -53,8 +53,9 @@ class ContactForm extends Component {
   render() {
     return (
       <div id='contact'>
+        <h2>How to reach me...</h2>
         <div id='contact-container'>
-          <form id='form' action='https:formspree.io/contact@jamesmcgill.co.uk' method='POST'>
+          <form id='form' action='https://formspree.io/contact@jamesmcgill.co.uk' method='POST'>
             Name:
             <input type='text' name='name' id='name' value={this.state.name} onChange={this.handleChange} />
             <span id='name-error'></span>

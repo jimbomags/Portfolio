@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import MyLoc from 'react-icons/lib/md/my-location'
-import Send from 'react-icons/lib/md/send'
 
 class Weather extends Component {
   constructor(props){
@@ -64,7 +63,7 @@ class Weather extends Component {
     }
   }
   findUserLocation() {
-    let cursor = document.querySelector('#content')
+    let cursor = document.querySelector('#portfolio-container')
     cursor.style.cursor = 'wait'
 
     var position = {}
