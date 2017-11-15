@@ -68,7 +68,7 @@ class SnakesAndLadders extends Component {
 
       else if (ladderKeys.includes(sandlCheck)) {
 
-        document.querySelector('#landed-on-s-or-l').innerText = `Congratulations Player 1! You landed on a ladder and moved up ${ladders[sandlCheck]} places`
+        document.querySelector('#landed-on-s-or-l').innerText = `Player 1! You landed on a ladder and moved up ${ladders[sandlCheck]} places`
 
         this.setState({
           p1Score: this.state.p1Score + rndNum + ladders[sandlCheck],
@@ -127,7 +127,7 @@ class SnakesAndLadders extends Component {
 
       else if (ladderKeys.includes(sandlCheck)) {
 
-        document.querySelector('#landed-on-s-or-l').innerText = `Congratulations Player 2! You landed on a ladder and moved up ${ladders[sandlCheck]} places`
+        document.querySelector('#landed-on-s-or-l').innerText = `Player 2! You landed on a ladder and moved up ${ladders[sandlCheck]} places`
 
         this.setState({
           p2Score: this.state.p2Score + rndNum + ladders[sandlCheck],
@@ -187,16 +187,31 @@ class SnakesAndLadders extends Component {
     const board = () => {
       var grid = []
       var number = 100
-      for (var i = 0; i < 10; i++) {
-        grid.push([])
-        for (var k = 0; k < 10; k++) {
-          grid[i].push(
-            <div className='square' id={number} key={number}>
-              <div id={p2Position(number)}></div>
-              <p>{number}<b> {snakesAndLaddersPositions(number)}</b></p>
-              <div id={p1Position(number)}></div>
-            </div>)
-          number--
+      if (window.screen.width > 800) {
+        for (var i = 0; i < 10; i++) {
+          grid.push([])
+          for (var k = 0; k < 10; k++) {
+            grid[i].push(
+              <div className='square' id={number} key={number}>
+                <div id={p2Position(number)}></div>
+                <p>{number}<b> {snakesAndLaddersPositions(number)}</b></p>
+                <div id={p1Position(number)}></div>
+              </div>)
+            number--
+          }
+        }
+      } else {
+        for (var i = 0; i < 25; i++) {
+          grid.push([])
+          for (var k = 0; k < 4; k++) {
+            grid[i].push(
+              <div className='square' id={number} key={number}>
+                <div id={p2Position(number)}></div>
+                <p>{number}<b> {snakesAndLaddersPositions(number)}</b></p>
+                <div id={p1Position(number)}></div>
+              </div>)
+            number--
+          }
         }
       }
       return grid.map((arr, index) => {

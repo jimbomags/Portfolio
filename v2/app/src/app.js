@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import Content from './components/Content'
 
-const skills = <div id='skills_container'>
-  {Content.skills.map((item) => {
-    return (
-      <div key={item[0]} className='skills'>
-        <img src={item[1]} />
-        {item[2]}
-      </div>
-    )
-  })}
+const skills = <div id='skills'>
+  <h2>My Skill Set...</h2>
+  <div id='skill-images-container'>
+    {Content.skills.map((item) => {
+      return (
+        <div key={item[0]} className='skills'>
+          <img src={item[1]} />
+          {item[2]}
+        </div>
+      )
+    })}
+  </div>
 </div>
 
 class App extends Component {
@@ -18,86 +21,41 @@ class App extends Component {
     this.state = {
       content: Content.home
     }
-    this.changeContent = this.changeContent.bind(this)
-    this.portClicked = this.portClicked.bind(this)
-    this.displayNav = this.displayNav.bind(this)
   }
-  changeContent(newContent) {
-
-    this.setState({content: newContent})
+  componentDidMount() {
+    let burger = document.querySelector('#burger_icon')
+    let links = document.querySelector('#links')
+    burger.addEventListener('click', () => {
+      if (links.style.display == 'none' || links.style.display == '') {
+        links.style.display = 'flex'
+      } else {
+        links.style.display = 'none'
+      }
+    })
   }
-  portClicked() {
-    const port = document.querySelectorAll('.port')
-
-    if (window.screen.width < 1050) {
-
-      port.forEach(item => {
-        if (item.style.display == 'block') {
-          item.style.display = 'none'
-        }
-        else {
-          item.style.display = 'block'
-        }
-        item.classList.toggle('clicked_port')
-      })
-    }
-  }
-  displayNav() {
-    const links = document.querySelector('#links')
-    if (links.style.display == 'flex') {
-      links.style.display = ''
-    }
-    else {
-      links.style.display = 'flex'
-    }
-  }
-
   render() {
     return (
-      <div id='main_container'>
-        <nav>
-          <ul id='links'>
-            <p onClick={() => {
-              this.displayNav()
-              this.changeContent(Content.home)}
-            }>Home</p>
-            <p onClick={() => {
-              this.displayNav()
-              this.changeContent(Content.about)}
-            }>About</p>
-            <p onClick={() => {
-              this.displayNav()
-              this.changeContent(skills)}
-            }>Skills</p>
-            <div id='port_links'>
-              <p onClick={this.portClicked}>Portfolio</p>
-              <div id='port_links_content'>
-                <p className='port' onClick={() => {
-                  this.displayNav()
-                  this.changeContent(Content.portfolio.rndQuote)}
-                }>Random Quote</p>
-                <p className='port' onClick={() => {
-                  this.displayNav()
-                  this.changeContent(Content.portfolio.weather)}
-                }>Weather App</p>
-                <p className='port' onClick={() => {
-                  this.displayNav()
-                  this.changeContent(Content.portfolio.sandl)}
-                }>Snakes & Ladders</p>
-              </div>
+      <div id='whole_container'>
+        <div id='home_container'>
+          <nav>
+            <div id='burger_icon'>
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
-            <p onClick={() => {
-              this.displayNav()
-              this.changeContent(Content.contact)}
-            }>Contact</p>
-          </ul>
-          <div id='burger_icon' onClick={this.displayNav}>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </nav>
-        {this.state.content}
+            <ul id='links'>
+              <a href='#about'>About</a>
+              <a href='#skills'>Skills</a>
+              <a href='#portfolio-container'>Portfolio</a>
+              <a href='#contact'>Contact</a>
+            </ul>
+          </nav>
+          {Content.home}
+        </div>
+        {Content.about}
+        {skills}
+        {Content.portfolio}
+        {Content.contact}
       </div>
     )
   }
