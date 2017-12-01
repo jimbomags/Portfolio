@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import Github from 'react-icons/lib/fa/github'
-import Envelope from 'react-icons/lib/fa/envelope'
+import React, { Component } from 'react';
+import Github from 'react-icons/lib/fa/github';
+import Envelope from 'react-icons/lib/fa/envelope';
 
 
 class ContactForm extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       name: '',
       email: '',
@@ -20,7 +20,7 @@ class ContactForm extends Component {
       [name]: event.target.value
     })
   }
-  componentDidMount() {
+  handleSubmit(event) {
     let form = document.querySelector('#form')
     let name = document.querySelector('#name')
     let email = document.querySelector('#email')
@@ -29,7 +29,6 @@ class ContactForm extends Component {
     let emailError = document.querySelector('#email-error')
     let messageError = document.querySelector('#message-error')
 
-    form.addEventListener('submit', (event) => {
       if (name.value.length == 0) {
         name.classList.add('error-input')
         nameError.classList.add('error')
@@ -48,14 +47,13 @@ class ContactForm extends Component {
         messageError.innerText = "Don't forget to say something!"
         event.preventDefault()
       }
-    })
   }
   render() {
     return (
       <div id='contact'>
         <h2>How to reach me...</h2>
         <div id='contact-container'>
-          <form id='form' action='https://formspree.io/contact@jamesmcgill.co.uk' method='POST'>
+          <form id='form' onSubmit={this.handleSubmit} action='https://formspree.io/contact@jamesmcgill.co.uk' method='POST'>
             Name:
             <input type='text' name='name' id='name' value={this.state.name} onChange={this.handleChange} />
             <span id='name-error'></span>

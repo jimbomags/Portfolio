@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Content from './components/Content'
+import React, { Component } from 'react';
+import Content from './components/Content';
 
 const skills = <div id='skills'>
   <h2>My Skill Set...</h2>
@@ -10,35 +10,28 @@ const skills = <div id='skills'>
           <img src={item[1]} />
           {item[2]}
         </div>
-      )
+      );
     })}
   </div>
-</div>
+</div>;
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      content: Content.home
+  
+  showNav() {
+    let links = document.querySelector('#links');
+
+    if (links.style.display == 'none' || links.style.display == '') {
+      links.style.display = 'flex';
+    } else {
+      links.style.display = 'none';
     }
-  }
-  componentDidMount() {
-    let burger = document.querySelector('#burger_icon')
-    let links = document.querySelector('#links')
-    burger.addEventListener('click', () => {
-      if (links.style.display == 'none' || links.style.display == '') {
-        links.style.display = 'flex'
-      } else {
-        links.style.display = 'none'
-      }
-    })
   }
   render() {
     return (
       <div id='whole_container'>
         <div id='home_container'>
           <nav>
-            <div id='burger_icon'>
+            <div id='burger_icon' onClick={this.showNav}>
               <div></div>
               <div></div>
               <div></div>
@@ -57,8 +50,8 @@ class App extends Component {
         {Content.portfolio}
         {Content.contact}
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
