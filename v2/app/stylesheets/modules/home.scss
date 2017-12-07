@@ -149,7 +149,7 @@ html, body {
     position: relative;
     transition: margin-bottom 0.75s, border-radius 0.75s;
     //box-shadow: 15px 15px 10px rgb(200, 200, 200);
-    &:hover {
+    &:hover, &:focus {
       margin-bottom: -10px;
       border-radius: 3px 15px 3px 3px;
       //box-shadow: -15px -15px 10px rgb(200, 200, 200);

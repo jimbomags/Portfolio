@@ -11,6 +11,9 @@ exports[`It should render 1`] = `
       <div
         id="burger_icon"
         onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="0"
       >
         <div />
         <div />
@@ -18,24 +21,36 @@ exports[`It should render 1`] = `
       </div>
       <ul
         id="links"
+        style={
+          Object {
+            "display": "",
+          }
+        }
       >
         <a
           href="#about"
+          tabIndex="0"
         >
           About
         </a>
         <a
           href="#skills"
+          role="button"
+          tabIndex="0"
         >
           Skills
         </a>
         <a
           href="#portfolio-container"
+          role="button"
+          tabIndex="0"
         >
           Portfolio
         </a>
         <a
           href="#contact"
+          role="button"
+          tabIndex="0"
         >
           Contact
         </a>
@@ -108,6 +123,11 @@ exports[`It should render 1`] = `
         className="skills"
       >
         <img
+          alt={
+            <p>
+              HTML
+            </p>
+          }
           src="./assets/html5.png"
         />
         <p>
@@ -118,6 +138,11 @@ exports[`It should render 1`] = `
         className="skills"
       >
         <img
+          alt={
+            <p>
+              CSS
+            </p>
+          }
           src="./assets/css3.png"
         />
         <p>
@@ -128,6 +153,11 @@ exports[`It should render 1`] = `
         className="skills"
       >
         <img
+          alt={
+            <p>
+              Javascript
+            </p>
+          }
           src="./assets/javascript.png"
         />
         <p>
@@ -138,6 +168,11 @@ exports[`It should render 1`] = `
         className="skills"
       >
         <img
+          alt={
+            <p>
+              React
+            </p>
+          }
           src="./assets/react.jpg"
         />
         <p>
@@ -148,6 +183,11 @@ exports[`It should render 1`] = `
         className="skills"
       >
         <img
+          alt={
+            <p>
+              Node
+            </p>
+          }
           src="./assets/node.png"
         />
         <p>
@@ -158,6 +198,11 @@ exports[`It should render 1`] = `
         className="skills"
       >
         <img
+          alt={
+            <p>
+              Sass
+            </p>
+          }
           src="./assets/sass.png"
         />
         <p>
@@ -172,6 +217,14 @@ exports[`It should render 1`] = `
     <div
       id="back"
       onClick={[Function]}
+      onKeyPress={[Function]}
+      role="button"
+      style={
+        Object {
+          "display": "",
+        }
+      }
+      tabIndex="0"
     >
       <svg
         fill="currentColor"
@@ -192,7 +245,7 @@ exports[`It should render 1`] = `
           />
         </g>
       </svg>
-       Back
+      Back
     </div>
     <div
       id="portfolio-home"
@@ -210,6 +263,9 @@ exports[`It should render 1`] = `
             className="port-links"
             id="port-sl"
             onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex="0"
           />
           <div
             className="port-info"
@@ -226,6 +282,9 @@ exports[`It should render 1`] = `
             className="port-links"
             id="port-weather"
             onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex="0"
           />
           <div
             className="port-info"
@@ -234,7 +293,6 @@ exports[`It should render 1`] = `
               Weather App
             </h3>
           </div>
-          <p />
         </div>
         <div
           className="link-container"
@@ -243,6 +301,9 @@ exports[`It should render 1`] = `
             className="port-links"
             id="port-quote"
             onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex="0"
           />
           <div
             className="port-info"

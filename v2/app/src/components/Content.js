@@ -3,11 +3,11 @@ import Portfolio from './Portfolio'
 import Contact from './Contact'
 
 const Content = {
-  home:
-    <div id='home'>
+  title:
+    (<div id='home'>
       <h1>James McGill<br/><span>Frontend Developer</span></h1>
       <a href='#about'><button id='about-me-btn'>Find Out More</button></a>
-    </div>,
+    </div>),
   about:
     <div id='about'>
       <div>
