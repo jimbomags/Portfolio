@@ -1,0 +1,355 @@
+//Variables
+
+$blue: rgb(25, 125, 255);
+$teal: rgb(100, 255, 255);
+$pure-white: rgb(255, 255, 255);
+$off-white: rgb(250, 250, 250);
+$orange: rgb(255, 110, 0);
+$lighter-black: rgb(60, 60, 60);
+$border-orange: rgb(166, 74, 5);
+
+//Weather App
+#weather {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  margin: 5% auto auto auto;
+  color: $lighter-black;
+  font-size: 20px;
+}
+#weather-form-container {
+  display: flex;
+  width: 50%;
+}
+#port-form {
+  margin: auto;
+  width: 100%;
+  button {
+    margin-top: 11px;
+  }
+}
+#location-search-field {
+  display: flex;
+}
+#find-me-image {
+  height: 25px;
+  margin: 21px 0px 0px 0px;
+  svg {
+    width: 30px;
+    height: 30px;
+    margin: auto auto auto 5px;
+  }
+  :hover {
+    cursor: pointer;
+  }
+}
+#weather-results {
+  display: flex;
+  p {
+    margin: 0 20px 20px 20px;
+  }
+}
+#weather-icon {
+    width: 200px;
+    height: 200px;
+}
+#weather-icon-container {
+  display: flex;
+  justify-content: center;
+}
+#search-again-btn {
+  display: flex;
+  justify-content: center;
+  button {
+    width: 200px;
+  }
+}
+
+//Snakes and Ladders
+
+#sandl-container {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  #players {
+    position: sticky;
+    position: -webkit-sticky;
+    height: 85vh;
+    top: -1px;
+    width: 12.5%;
+    display: flex;
+    flex-direction: column;
+    margin: 2% 0px;
+    .player-display {
+      display: flex;
+      margin: 3% auto 0 auto;
+      color: $lighter-black;
+    }
+    #p1 div {
+      background-color: red;
+      width: 25px;
+      height: 25px;
+      margin: 10px;
+      border-radius: 25px;
+    }
+    #p2 div {
+      background-color: blue;
+      width: 25px;
+      height: 25px;
+      margin: 10px;
+      border-radius: 25px;
+    }
+    #score-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      height: 40vh;
+      margin: 40% 0px 0px 0px;
+      p {
+        text-align: center;
+        color: $lighter-black;
+      }
+    }
+  }
+  #board {
+    width: 77.5%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    margin: 2% 0px;
+    .board-row {
+      display: flex;
+      width: 100%;
+      .square {
+        display: flex;
+        width: 10%;
+        justify-content: center;
+        border: 2px black solid;
+      }
+    }
+    p {
+      text-align: center;
+      color: black;
+      margin: auto 10px;
+
+    }
+    :nth-child(even) {
+        flex-direction: row-reverse;
+    }
+  }
+  button {
+    width: 90%;
+    margin: 0px auto;
+  }
+  #p1-Circle {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 25px;
+    margin: auto 0px;
+  }
+  #p2-Circle {
+    width: 15px;
+    height: 15px;
+    background-color: blue;
+    border-radius: 25px;
+    margin: auto 0px;
+  }
+  .push_button {
+    border-right: solid 3px $border-orange;
+    border-bottom: solid 3px $border-orange;
+    &:active {
+      border-right: solid 3px $orange;
+      border-bottom: solid 3px $orange;
+      border-top: solid 3px $border-orange;
+      border-left: solid 3px $border-orange;
+    }
+  }
+}
+//Random Quote
+
+#quote-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin: 5% auto;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  color: $lighter-black;
+  font-size: 18px;
+  p {
+    text-align: center;
+  }
+  p:nth-child(2) {
+    text-align: right;
+  }
+  #quote-button {
+    width: 200px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: solid 3px $border-orange;
+    border-bottom: solid 3px $border-orange;
+    &:active {
+      border-right: solid 3px $orange;
+      border-bottom: solid 3px $orange;
+      border-top: solid 3px $border-orange;
+      border-left: solid 3px $border-orange;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #sandl-container {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    #players {
+      position: sticky;
+      top: 10vh;
+      width: 30%;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      margin: 10vh 0px;
+      .player-display {
+        display: flex;
+        margin: 0 auto;
+        color: $lighter-black;
+      }
+      #p1 div {
+        background-color: red;
+        width: 15px;
+        height: 15px;
+        margin: 20px 10px;
+        border-radius: 25px;
+      }
+      #p2 div {
+        background-color: yellow;
+        width: 15px;
+        height: 15px;
+        margin: 20px 10px;
+        border-radius: 25px;
+      }
+      #score-info {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 40vh;
+        margin: 20% 0px 0px 0px;
+        font-size: 14px;
+        p {
+          text-align: center;
+          color: $lighter-black;
+        }
+      }
+    }
+    #board {
+      width: 68%;
+      height: 90%;
+      display: flex;
+      flex-wrap: wrap;
+      background-color: white;
+      margin: 2% 5px 2% 0;
+      .board-row {
+        display: flex;
+        width: 100%;
+        .square {
+          display: flex;
+          width: 25%;
+          height: 50px;
+          justify-content: center;
+          border: 2px black solid;
+        }
+      }
+      p {
+        text-align: center;
+        color: black;
+        margin: auto 10px;
+
+      }
+      :nth-child(even) {
+          flex-direction: row-reverse;
+      }
+    }
+    button {
+      width: 90%;
+      margin: auto auto 10px auto;
+    }
+    #p1-Circle {
+      width: 15px;
+      height: 15px;
+      background-color: red;
+      border-radius: 25px;
+      margin: auto 0px;
+    }
+    #p2-Circle {
+      width: 15px;
+      height: 15px;
+      background-color: yellow;
+      border-radius: 25px;
+      margin: auto 0px;
+    }
+    .push_button {
+      border-right: solid 3px $border-orange;
+      border-bottom: solid 3px $border-orange;
+      &:active {
+        border-right: solid 3px $orange;
+        border-bottom: solid 3px $orange;
+        border-top: solid 3px $border-orange;
+        border-left: solid 3px $border-orange;
+      }
+    }
+  }
+
+  //Weather
+  #weather {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 5% auto auto auto;
+    color: $lighter-black;
+    font-size: 20px;
+  }
+  #weather-form-container {
+    display: flex;
+    width: 90%;
+  }
+  #weather-results {
+    display: flex;
+    p {
+      font-size: 14px;
+      margin: 0 20px 20px 20px;
+    }
+  }
+  #quote-container {
+    width: 90%;
+
+    #quote-button {
+      width: 200px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-top: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+@media screen and (min-width: 451px) and (max-width: 1000px) {
+
+}
