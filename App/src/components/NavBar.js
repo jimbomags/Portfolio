@@ -2,23 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const Links = () => {
-  const linkNames = [{
-    link: '#about',
-    text: 'About',
-  },
-  {
-    link: '#skills',
-    text: 'Skills',
-  },
-  {
-    link: '#portfolio-container',
-    text: 'Portfolio',
-  },
-  {
-    link: '#contact',
-    text: 'Contact',
-  }];
-  return linkNames.map(linkName => (<a href={linkName.link} role="button" tabIndex="0" key={linkName.text}>{linkName.text}</a>));
+  const linkNames = ['About', 'Skills', 'Portfolio', 'Contact'];
+  return linkNames.map(linkName => (<a href={`#${linkName.toLowerCase()}`} role="button" tabIndex="0" key={linkName}>{linkName}</a>));
 };
 
 const BurgerMenu = ({ showNav }) => (

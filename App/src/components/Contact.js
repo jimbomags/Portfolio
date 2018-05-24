@@ -1,81 +1,160 @@
 import React, { Component } from 'react';
 import Github from 'react-icons/lib/fa/github';
 import Envelope from 'react-icons/lib/fa/envelope';
+import PropTypes from 'prop-types';
+
+const Input = ({ type, name, value, onChange, error }) => {
+  const className = error ? 'error-input' : '';
+  return (
+    <input
+      type={type}
+      name={name}
+      id={name}
+      value={value}
+      onChange={onChange}
+      className={className}
+    />);
+};
+
+Input.propTypes = {
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  error: PropTypes.bool.isRequired,
+};
+
+const TextArea = ({ value, onChange, error }) => {
+  const className = error ? 'error-input' : '';
+  return (
+    <textarea
+      name="message"
+      id="message"
+      value={value}
+      onChange={onChange}
+      className={className}
+    />);
+};
+
+TextArea.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  error: PropTypes.bool.isRequired,
+};
+
+const ErrorMessage = ({ error, text }) => {
+  if (error) {
+    return (<span className="error">{text}</span>);
+  }
+  return null;
+};
+
+ErrorMessage.propTypes = {
+  text: PropTypes.string.isRequired,
+  error: PropTypes.bool.isRequired,
+};
+
+const ContactFormPresentation = ({
+  handleChange,
+  handleSubmit,
+  nameValue,
+  emailValue,
+  messageValue,
+  nameError,
+  emailError,
+  messageError,
+}) => (
+  <div id="contact">
+    <h2>How to reach me...</h2>
+    <div id="contact-container">
+      <form id="form" onSubmit={handleSubmit} action="https://formspree.io/contact@jamesmcgill.co.uk" method="POST">
+        <label>Name:</label>
+        <Input type="text" name="name" value={nameValue} onChange={handleChange} error={nameError} />
+        <ErrorMessage error={nameError} text="Please enter your name" />
+        <label>E-mail:</label>
+        <Input type="email" name="email" value={emailValue} onChange={handleChange} error={emailError} />
+        <ErrorMessage error={emailError} text="Please enter a vaild email address" />
+        <label>Message:</label>
+        <TextArea value={messageValue} onChange={handleChange} error={messageError} />
+        <ErrorMessage error={messageError} text="Don't forget to say something!" />
+        <div className="submitBtn">
+          <button className="button" type="submit">Submit</button>
+        </div>
+      </form>
+      <div id="contact-icons">
+        <a href="https://github.com/jimbomags" target="_blank" rel="noreferrer noopener"><Github /></a>
+        <a href="mailto:contact@jamesmcgill.co.uk"><Envelope /></a>
+      </div>
+    </div>
+  </div>
+);
+
+ContactFormPresentation.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  nameValue: PropTypes.string.isRequired,
+  emailValue: PropTypes.string.isRequired,
+  messageValue: PropTypes.string.isRequired,
+  nameError: PropTypes.bool.isRequired,
+  emailError: PropTypes.bool.isRequired,
+  messageError: PropTypes.bool.isRequired,
+};
 
 
 class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
-      message: ''
-    }
-    this.handleChange = this.handleChange.bind(this)
+      nameValue: '',
+      emailValue: '',
+      messageValue: '',
+      nameError: false,
+      emailError: false,
+      messageError: false,
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
-    let name = event.target.name
+    const nameValue = `${event.target.name}Value`;
 
     this.setState({
-      [name]: event.target.value
-    })
+      [nameValue]: event.target.value,
+    });
   }
   handleSubmit(event) {
-    let form = document.querySelector('#form')
-    let name = document.querySelector('#name')
-    let email = document.querySelector('#email')
-    let message = document.querySelector('#message')
-    let nameError = document.querySelector('#name-error')
-    let emailError = document.querySelector('#email-error')
-    let messageError = document.querySelector('#message-error')
-
-      if (name.value.length == 0) {
-        name.classList.add('error-input')
-        nameError.classList.add('error')
-        nameError.innerText = 'Please enter your name'
-        event.preventDefault()
-      }
-      if (email.value.length == 0) {
-        email.classList.add('error-input')
-        emailError.classList.add('error')
-        emailError.innerText = 'Please enter a vaild email address'
-        event.preventDefault()
-      }
-      if (message.value.length == 0) {
-        message.classList.add('error-input')
-        messageError.classList.add('error')
-        messageError.innerText = "Don't forget to say something!"
-        event.preventDefault()
-      }
+    if (!this.state.nameValue) {
+      this.setState({
+        nameError: true,
+      });
+      event.preventDefault();
+    }
+    if (!this.state.emailValue) {
+      this.setState({
+        emailError: true,
+      });
+      event.preventDefault();
+    }
+    if (!this.state.messageValue) {
+      this.setState({
+        messageError: true,
+      });
+      event.preventDefault();
+    }
   }
   render() {
     return (
-      <div id='contact'>
-        <h2>How to reach me...</h2>
-        <div id='contact-container'>
-          <form id='form' onSubmit={this.handleSubmit} action='https://formspree.io/contact@jamesmcgill.co.uk' method='POST'>
-            Name:
-            <input type='text' name='name' id='name' value={this.state.name} onChange={this.handleChange} />
-            <span id='name-error'></span>
-            E-mail:
-            <input type='email' name='email' id='email' value={this.state.email} onChange={this.handleChange} />
-            <span id='email-error'></span>
-            Message:
-            <textarea name='message' id='message' value={this.state.message} onChange={this.handleChange}>
-            </textarea>
-            <span id='message-error'></span>
-            <div className='submitBtn'>
-              <button className='button' type='submit'>Submit</button>
-            </div>
-          </form>
-          <div id='contact-icons'>
-            <a href='https://github.com/jimbomags' target='_blank'><Github /></a>
-            <a href='mailto:contact@jamesmcgill.co.uk'><Envelope /></a>
-          </div>
-        </div>
-      </div>
-    )
+      <ContactFormPresentation
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        nameValue={this.state.nameValue}
+        emailValue={this.state.emailValue}
+        messageValue={this.state.messageValue}
+        nameError={this.state.nameError}
+        emailError={this.state.emailError}
+        messageError={this.state.messageError}
+      />);
   }
 }
 
-export default ContactForm
+export default ContactForm;
