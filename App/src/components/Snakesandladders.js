@@ -167,7 +167,6 @@ class SnakesAndLadders extends Component {
     };
 
     if (this.state.p1Turn) {
-
       this.setState({
         p1Turn: false,
         rollDiceInfo: `Player 1, you rolled ${rndNum}`,
