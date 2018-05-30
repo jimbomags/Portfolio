@@ -9,6 +9,7 @@ module.exports = {
   },
   devServer: {
     contentBase: './App/dist',
+    open: 'chrome',
   },
   module: {
     rules: [
