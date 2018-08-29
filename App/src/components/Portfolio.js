@@ -49,6 +49,19 @@ const HomePortfolio = ({ handleState }) => (
           <h3>Random Quote Generator</h3>
         </div>
       </div>
+      <div className="link-container">
+        <div
+          id="port-bookmark"
+          className="port-links"
+          role="button"
+          tabIndex="0"
+          onClick={() => handleState({ content: 'weather' })}
+          onKeyPress={() => handleState({ content: 'weather' })}
+        />
+        <div className="port-info">
+          <h3>Bookmark App</h3>
+        </div>
+      </div>
     </div>
   </div>
 );

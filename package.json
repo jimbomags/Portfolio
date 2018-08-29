@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack -p",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",

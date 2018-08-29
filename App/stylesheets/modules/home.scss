@@ -109,9 +109,8 @@ html, body {
   }
 }
 #portfolio-container {
-  //background: linear-gradient(rgb(0, 200, 255),rgb(0, 100, 255));
   background-color: $off-white;
-  min-height: 85vh;
+  min-height: 100vh;
   #back {
     margin: auto auto 30px 3%;
     padding-top: 10px;
@@ -134,14 +133,15 @@ html, body {
   }
   #port-links-container {
     display: flex;
-    margin: 0 auto;
-    width: 90%;
+    flex-wrap: wrap;
+    margin: 0 0 0 15%;
+    width: 60%;
   }
   .port-links {
-    width: 90%;
-    height: 200px;
-    margin: 3% auto -160px auto;
-    background-size: cover;
+    width: 80%;
+    height: 160px;
+    margin: 3% auto -110px auto;
+    background-size: 100% 100%;
     background-position: center;
     color: $lighter-black;
     border-radius: 3px 15px 15px 15px;
@@ -157,8 +157,8 @@ html, body {
     }
   }
   .port-info {
-    width: 90%;
-    height: 130px;
+    width: 80%;
+    height: 100px;
     margin: 0 auto;
     border-radius: 0 0 15px 15px;
     background-color: $pure-white;
@@ -172,17 +172,21 @@ html, body {
   }
   #port-quote {
     background-image: url('../dist/assets/rnd-quote.jpg');
+    background-position: top;
   }
   #port-sl {
     background-image: url('../dist/assets/sandl.png');
-    background-size: 100% 100%;
   }
   #port-weather {
     background-image: url('../dist/assets/weather.jpeg');
   }
+  #port-bookmark {
+    background-image: url('../dist/assets/bookmark.jpg')
+  }
   .link-container {
-    width: 25%;
-    margin: 3% 3%;
+    width: 40%;
+    min-height: 260px;
+    margin: 0 3% 2% 0;
   }
 }
 form {
