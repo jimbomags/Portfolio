@@ -217,7 +217,7 @@ class Weather extends Component {
     });
   }
   findUserLocation() {
-    const cursor = document.querySelector('#portfolio-container');
+    const cursor = document.querySelector('#weather');
     cursor.style.cursor = 'wait';
 
     const position = {};

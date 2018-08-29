@@ -1,21 +1,24 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-import NavBarContainer from './components/NavBar';
+
 import Home from './components/Home';
-import About from './components/About';
-import Skills from './components/Skills';
-import Portfolio from './components/Portfolio';
-import Contact from './components/Contact';
+import SnakesAndLadders from './components/Snakesandladders';
+import Weather from './components/Weather';
+import RndQuote from './components/RndQuote';
+
 
 const App = () => (
-  <div id="whole_container">
-    <div id="home_container">
-      <NavBarContainer />
-      <Home />
+  <Router>
+    <div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/snakesandladders" component={SnakesAndLadders} />
+        <Route path="/weather" component={Weather} />
+        <Route path="/randomquote" component={RndQuote} />
+      </Switch>
     </div>
-    <About />
-    <Portfolio />
-    <Contact />
-  </div>);
+  </Router>
+);
 
 export default App;
