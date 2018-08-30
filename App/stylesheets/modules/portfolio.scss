@@ -7,6 +7,8 @@ $off-white: rgb(250, 250, 250);
 $orange: rgb(255, 110, 0);
 $lighter-black: rgb(60, 60, 60);
 $border-orange: rgb(166, 74, 5);
+$red-btn: rgb(200, 0, 0);
+$grey-btn: rgb(150, 150, 150);
 
 //Weather App
 #weather {
@@ -71,10 +73,6 @@ $border-orange: rgb(166, 74, 5);
   min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
-  animation-name: fadeIn;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  opacity: 0;
   #players {
     position: sticky;
     position: -webkit-sticky;
@@ -177,10 +175,6 @@ $border-orange: rgb(166, 74, 5);
   display: flex;
   flex-direction: column;
   margin: 5% auto;
-  animation-name: fadeIn;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  opacity: 0;
   color: $lighter-black;
   font-size: 18px;
   p {
@@ -207,6 +201,108 @@ $border-orange: rgb(166, 74, 5);
     }
   }
 }
+// Bookmark App
+
+.main-container {
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 10vh auto;
+}
+.btn {
+  border-radius: 10px;
+  font-size: 12px;
+  margin: auto 0;
+  color: white;
+  border: none;
+    &:hover {
+      cursor: pointer;
+    }
+}
+.btn-add-container {
+  display: flex;
+}
+.btn-primary {
+  width: 100px;
+  height: 50px;
+}
+.btn-secondary {
+  width: 70px;
+  height: 35px;
+}
+.btn-add {
+  background-color: green;
+}
+.btn-red{
+  background-color: $red-btn;
+}
+.btn-edit {
+  background-color: $grey-btn;
+}
+.btns-edit-delete {
+  margin: 5px 0 5px 10px;
+}
+.bookmark-list {
+  list-style: none;
+  padding: 0;
+}
+.bookmark {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+.bookmark-anchor {
+  margin: auto 0;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+.bookmark-btns {
+  display: flex;
+}
+.add-bookmark-form-container {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  justify-content: center;
+}
+.form {
+  margin: auto;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  label {
+    margin: -20% auto 5% auto;
+    color: white;
+    font-size: 20px;
+  }
+  input {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 5px;
+}
+.form-btns {
+  display: flex;
+  justify-content: flex-end;
+  button {
+    margin: 20px 10px;
+  }
+}
+
 
 @media screen and (max-width: 800px) {
   #sandl-container {

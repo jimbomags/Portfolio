@@ -6,6 +6,7 @@ import Home from './components/Home';
 import SnakesAndLadders from './components/Snakesandladders';
 import Weather from './components/Weather';
 import RndQuote from './components/RndQuote';
+import Bookmark from './components/Bookmark';
 
 
 const App = () => (
@@ -16,6 +17,7 @@ const App = () => (
         <Route path="/snakesandladders" component={SnakesAndLadders} />
         <Route path="/weather" component={Weather} />
         <Route path="/randomquote" component={RndQuote} />
+        <Route path="/bookmark" component={Bookmark} />
       </Switch>
     </div>
   </Router>

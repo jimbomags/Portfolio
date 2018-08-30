@@ -32,7 +32,7 @@ const Portfolio = () => (
         </div>
       </div>
       </Link>
-      <Link to='/randomquote'>
+      <Link to="/randomquote">
       <div className="link-container">
         <div
           id="port-quote"
@@ -45,17 +45,19 @@ const Portfolio = () => (
         </div>
       </div>
       </Link>
-      <div className="link-container">
-        <div
-          id="port-bookmark"
-          className="port-links"
-          role="button"
-          tabIndex="0"
-        />
-        <div className="port-info">
-          <h3>Bookmark App</h3>
+      <Link to="/bookmark">
+        <div className="link-container">
+          <div
+            id="port-bookmark"
+            className="port-links"
+            role="button"
+            tabIndex="0"
+          />
+          <div className="port-info">
+            <h3>Bookmark App</h3>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   </div>
 );
