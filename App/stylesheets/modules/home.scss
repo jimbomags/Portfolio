@@ -325,7 +325,7 @@ form {
 
       flex-direction: column;
       padding-bottom: 20px;
-      .link-container {
+      a {
         width: 80%;
         margin: auto;
       }
@@ -364,7 +364,14 @@ form {
       }
     }
   }
+  .main-container {
+    width: 90%;
+  }
+  .form {
+    width: 80%;
+  }
 }
+
 
 @media screen and (min-width: 451px) and (max-width: 1000px) {
   #home_container {
