@@ -4,7 +4,7 @@ const About = () => (
   <div id="about">
     <div>
       <h3>Why I Started...</h3>
-      <p> Hi, I’m James, and I’m a self-taught Junior Front End Developer. I started learning to code in August 2016 after deciding to change my career. I began by looking at my interests for inspiration and two things stood out, video games and tech. I immediately ruled out playing video games as I normally get thrashed when I play online – so I looked into tech. In deciding what to learn I looked back to when I was studying Computing for my A-levels. I was led to choosing web development when I realised my favourite projects were building a simple website and coding a snakes & ladders game in BASIC.</p>
+      <p> Hi, I’m James, and I’m a self-taught Junior Front End Developer. I started learning to code after deciding to change my career. I began by looking at my interests for inspiration and two things stood out, video games and tech. I immediately ruled out playing video games as I normally get thrashed when I play online – so I looked into tech. In deciding what to learn I looked back to when I was studying Computing for my A-levels. I was led to choosing web development when I realised my favourite projects were building a simple website and coding a snakes & ladders game in BASIC.</p>
       <h3>How I Started...</h3>
       <p>Not knowing where to start I searched 'how to be a web developer' and started learning Python from a recommendation in a blog. Shortly after starting this course I became disgruntled, I was copying code to a code editor and not learning much. Therefore, I researched other options and decided to switch to learning HTML & CSS from Codecademy & Lynda - although I still plan on learning Python in the future.</p>
 
